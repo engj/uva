@@ -1,8 +1,6 @@
 /**
  * Created by Justin on 2/8/14.
  */
-// @JUDGE_ID:  1000AA  100  Java  "Easy algorithm"
-
 import java.io.*;
 import java.util.*;
 
