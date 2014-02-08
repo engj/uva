@@ -15,8 +15,7 @@ public class p11498 {
                 if ((car < 0) || (car == '\n')) break;
                 lin [lg++] += car;
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             return (null);
         }
 
