@@ -3,8 +3,7 @@
  */
 import java.io.*;
 import java.util.*;
-
-class Main
+public class p11172
 {
     static String ReadLn (int maxLg)  // utility function to read from stdin
     {
@@ -34,8 +33,8 @@ class Main
         String line;
         StringTokenizer lineTokens;
         int a, b;
-        line = Main.ReadLn(255);
-        while ((line = Main.ReadLn(255)) != null) {
+        line = p11172.ReadLn(255);
+        while ((line = p11172.ReadLn(255)) != null) {
             lineTokens = new StringTokenizer(line);
             a = Integer.parseInt(lineTokens.nextToken());
             b = Integer.parseInt(lineTokens.nextToken());
