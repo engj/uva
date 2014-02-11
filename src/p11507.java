@@ -16,7 +16,19 @@ public class p11507 {
 
     private static class Solver {
         public void solve(InputReader in, PrintWriter out) {
-            System.out.println("Hello world!");
+            while (true) {
+                int l = in.nextInt();
+                int nB = l - 1;
+                for (int j = 1; j <= nB; j++) {
+                    String d = in.next();
+                    if (d.equals("No"))
+                        continue;
+                    char f = d.charAt(0);
+                    char s = d.charAt(1);
+
+                }
+                System.out.println();
+            }
         }
     }
 
