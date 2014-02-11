@@ -1,10 +1,9 @@
 import java.io.*;
 import java.util.*;
-
 /**
  * Created by Justin on 2/10/14.
  */
-class p573 {
+public class p10141 {
     public static void main(String[] args) {
         InputStream inputStream = System.in;
         OutputStream outputStream = System.out;
@@ -16,40 +15,40 @@ class p573 {
 
     private static class Solver {
         public void solve(InputReader in, PrintWriter out) {
+            int k = 1;
             while (true) {
-                int h = in.nextInt();
-                int u = in.nextInt();
-                int d = in.nextInt();
-                double f = in.nextDouble() / 100;
-
-                if (h == 0)
-                    break;
-                double cH = 0;
-                int day = 1;
-                double pClimbed = 0;
-                double climbed = 0;
-                cH += 0;
-                while (true) {
-                    if (day != 1)
-                        climbed = pClimbed - (f * u);
-                    else
-                        climbed = u;
-                    if (climbed > 0)
-                        cH += climbed;
-                    else
-                        cH += 0;
-                    if (cH > h) {
-                        System.out.println("success on day " + day);
-                        break;
-                    }
-                    cH -= d;
-                    if (cH < 0) {
-                        System.out.println("failure on day " + day);
-                        break;
-                    }
-                    day++;
-                    pClimbed = climbed;
+                int n = in.nextInt();
+                int nP = in.nextInt();
+                if (n == 0 && nP == 0)
+                    System.exit(0);
+                for (int i = 0; i < n; i++) {
+                    in.next();
+                    while (in.tokenizer.hasMoreTokens())
+                        in.tokenizer.nextToken();
                 }
+                int bC =  0;
+                double bP = Double.MAX_VALUE;
+                String bN = "";
+                for (int i = 0; i < nP; i++) {
+                    String cmp = in.next();
+                    double p = in.nextDouble();
+                    int c = in.nextInt();
+                    if (c > bC || (p < bP && c == bC)) {
+                        bC = c;
+                        bP = p;
+                        bN = cmp;
+                    }
+                    for (int j = 0; j < c; j++) {
+                        in.next();
+                        while (in.tokenizer.hasMoreTokens())
+                            in.tokenizer.nextToken();
+                    }
+                }
+                if (k != 1)
+                    System.out.println();
+                System.out.println("RFP #" + k);
+                System.out.println(bN);
+                k++;
             }
         }
     }
