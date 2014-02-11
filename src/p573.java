@@ -46,7 +46,7 @@ class p573 {
                     if (cH < 0) {
                         System.out.println("failure on day " + day);
                         break;
-                    }
+                     }
                     day++;
                     pClimbed = climbed;
                 }
