@@ -18,13 +18,17 @@ public class p11507 {
         public void solve(InputReader in, PrintWriter out) {
             while (true) {
                 int l = in.nextInt();
+                if (l == 0)
+                    break;
                 int nB = l - 1;
+                char cS = '+';
+                char cA = 'x';
                 for (int j = 1; j <= nB; j++) {
-                    String d = in.next();
-                    if (d.equals("No"))
+                    String b = in.next();
+                    if (b.equals("No"))
                         continue;
-                    char f = d.charAt(0);
-                    char s = d.charAt(1);
+                    char s = b.charAt(0);
+                    char a = b.charAt(1);
 
                 }
                 System.out.println();

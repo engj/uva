@@ -31,6 +31,8 @@ public class p10141 {
                 String bN = "";
                 for (int i = 0; i < nP; i++) {
                     String cmp = in.next();
+                    while (in.tokenizer.hasMoreTokens())
+                        cmp += " " + in.tokenizer.nextToken();
                     double p = in.nextDouble();
                     int c = in.nextInt();
                     if (c > bC || (p < bP && c == bC)) {
@@ -44,8 +46,7 @@ public class p10141 {
                             in.tokenizer.nextToken();
                     }
                 }
-                if (k != 1)
-                    System.out.println();
+                System.out.println();
                 System.out.println("RFP #" + k);
                 System.out.println(bN);
                 k++;
