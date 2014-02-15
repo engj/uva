@@ -42,7 +42,6 @@ public class p462 {
                     else if (s == 'D' || s == 'd') hS[2]++;
                     else if (s == 'C' || s == 'c') hS[3]++;
 
-
                     if (r == 'A' || r == 'a') {
                         p += 4;
                         hR[0]++;
@@ -79,6 +78,7 @@ public class p462 {
                     System.out.println("PASS");
                 else
                     System.out.println("BID " + su[m]);
+
                 break;
             }
         }
