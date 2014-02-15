@@ -77,16 +77,6 @@ public class p462 {
                     }
                 }
 
-                /*
-                for (int i = 0; i < 4; i++) {
-                    for (int j = 0; j < 13; j++) {
-                        System.out.print(h[i][j]);
-                        System.out.print(' ');
-                    }
-                    System.out.println();
-                }
-                */
-
                 // rule 2
                 for (int i = 0; i < 4; i++) {
                     if (h[i][12] == 1) {
