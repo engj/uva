@@ -18,7 +18,8 @@ public class p462 {
         public void solve(InputReader in, PrintWriter out) {
             while(true) {
                 int p = 0;
-                int[] h = new int[13];
+                int[] hR = new int[13];
+                int[] hS = new int[4];
                 String line;
                 try {
                     line = in.reader.readLine();
@@ -27,30 +28,38 @@ public class p462 {
                 }
                 StringTokenizer st = new StringTokenizer(line);
                 while (st.hasMoreTokens()) {
-                    char r = st.nextToken().charAt(0);
+                    String c = st.nextToken();
+                    char r = c.charAt(0);
+                    char s = c.charAt(1);
+                    if (s == 'S') hS[0]++;
+                    else if (s == 'H') hS[1]++;
+                    else if (s == 'D') hS[2]++;
+                    else if (s == 'c') hS[3]++;
                     if (r == 'A') {
                         p += 4;
-                        h[0]++;
+                        hR[0]++;
                     } else if (r == 'K') {
                         p += 3;
-                        h[12]++;
+                        hR[12]++;
                     } else if (r == 'Q') {
                         p += 2;
-                        h[11]++;
+                        hR[11]++;
                     } else if (r == 'J') {
                         p += 1;
-                        h[10]++;
+                        hR[10]++;
                     } else if (r== 'T') {
-                        h[9]++;
+                        hR[9]++;
                     } else {
-                        h[Character.getNumericValue(r) - 1]++;
+                        hR[Character.getNumericValue(r) - 1]++;
                     }
                 }
-                if (h[12] == 1) p--;
-                if (h[11] == 1 || h[11] == 2) p--;
-                if (h[10] == 1 || h[10] == 2 || h[10] == 3) p--;
-                for (int i = 0; i < 13; i++) {
-                    System.out.println(h[i]);
+                if (hR[12] == 1) p--;
+                if (hR[11] == 1 || hR[11] == 2) p--;
+                if (hR[10] == 1 || hR[10] == 2 || hR[10] == 3) p--;
+                for (int i = 0; i < 4; i++) {
+                    if (hS[i] == 2) p += 1;
+
+                    System.out.println(hS[i]);
                 }
                 System.out.println(p);
                 break;
