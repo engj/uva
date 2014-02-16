@@ -17,6 +17,10 @@ public class p10141 {
             double bP = Double.MAX_VALUE;
             int bR = 0;
 
+            // For problems with no defined number of input lines, the following snippet is not needed
+            //if (line == null || line.equals(""))
+            //    break;
+
             if (nR == 0 && nP == 0)
                 break;
 
