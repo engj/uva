@@ -38,6 +38,8 @@ public class p10141 {
                 for (int j = 0; j < r; j++)
                     in.readLine();
             }
+
+            // Omitting this condition resulted in a WA
             if (prop != 1)
                 out.println();
             out.println("RFP #" + prop);
