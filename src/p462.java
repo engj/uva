@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 /**
  * Created by Justin on 2/15/14.
  */
+
+// Rushed through this, need to simplify in the future.
 public class p462 {
     public static void main(String[] args) throws Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -163,10 +165,13 @@ public class p462 {
                 }
             }
 
-            if (p < 14)
-                System.out.println("PASS");
-            else
-                System.out.println("BID " + bstBd);
+            if (p < 14) {
+                out.println("PASS");
+                out.flush();
+            } else {
+                out.println("BID " + bstBd);
+                out.flush();
+            }
         }
 
         in.close();
