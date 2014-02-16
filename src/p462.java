@@ -19,10 +19,11 @@ public class p462 {
             while(true) {
                 String line;
                 try {
-                    line = in.reader.readLine();
-                } catch (IOException e ) {
-                    throw new RuntimeException(e);
+                    line = in.reader.readLine().trim();
+                } catch (IOException e) {
+                    break;
                 }
+
                 StringTokenizer st = new StringTokenizer(line);
 
                 int[][] h = new int[4][13];

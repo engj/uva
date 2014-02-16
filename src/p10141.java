@@ -20,19 +20,24 @@ public class p10141 {
                 int n = in.nextInt();
                 int nP = in.nextInt();
                 if (n == 0 && nP == 0)
-                    System.exit(0);
+                    break;
                 for (int i = 0; i < n; i++) {
-                    in.next();
-                    while (in.tokenizer.hasMoreTokens())
-                        in.tokenizer.nextToken();
+                    try {
+                        in.reader.readLine();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
                 int bC =  0;
                 double bP = Double.MAX_VALUE;
                 String bN = "";
                 for (int i = 0; i < nP; i++) {
-                    String cmp = in.next();
-                    while (in.tokenizer.hasMoreTokens())
-                        cmp += " " + in.tokenizer.nextToken();
+                    String cmp = "";
+                    try {
+                        cmp = in.reader.readLine().trim();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                     double p = in.nextDouble();
                     int c = in.nextInt();
                     if (c > bC || (p < bP && c == bC)) {
@@ -41,9 +46,11 @@ public class p10141 {
                         bN = cmp;
                     }
                     for (int j = 0; j < c; j++) {
-                        in.next();
-                        while (in.tokenizer.hasMoreTokens())
-                            in.tokenizer.nextToken();
+                        try {
+                            in.reader.readLine();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                 }
                 System.out.println();
@@ -66,7 +73,7 @@ public class p10141 {
         public String next() {
             while (tokenizer == null || !tokenizer.hasMoreTokens()) {
                 try {
-                    String line = reader.readLine();
+                    String line = reader.readLine().trim();
                     tokenizer = new StringTokenizer(line);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
