@@ -18,7 +18,7 @@ public class p10141 {
             int bR = 0;
 
             // For problems with no defined number of input lines, the following snippet is not needed
-            //if (line == null || line.equals(""))
+            // if (line == null || line.equals(""))
             //    break;
 
             if (nR == 0 && nP == 0)
