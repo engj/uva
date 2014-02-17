@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 /**
  * Created by Justin on 2/15/14.
  */
+// Struggled with indexes. Should practice this one again in the future..
 public class p10646 {
     private static int cardVal(String c) {
         char r = c.charAt(0);
