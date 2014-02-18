@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
  * Created by Justin on 2/15/14.
  */
 
-// Rushed through this, need to simplify in the future.
+// Rushed through this, need to simplify in the future using a Card class.
 public class p462 {
     public static void main(String[] args) throws Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
