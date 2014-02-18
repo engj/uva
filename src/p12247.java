@@ -133,7 +133,7 @@ public class p12247 {
                 }
             }
 
-            if (foundSolution == true) {
+            if (foundSolution == true && prince[2] != 53) {
                 System.out.println(prince[2]);
             } else {
                 System.out.println("-1");
