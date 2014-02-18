@@ -1,12 +1,63 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
  * Created by Justin on 2/16/14.
  */
 public class p12247 {
+    private static String arrayString(int[] a) {
+        String r = "{ ";
+        for (int i = 0; i < a.length; i++)
+            r += a[i] + " ";
+        return r + "}";
+    }
+    private static boolean doCheck(int[] a, int[] b) {
+        ArrayList<int[]> pl = new ArrayList<int[]>();
+        permute(b, b.length, pl);
+        for (int i = 0; i < pl.size(); i++) {
+            int[] c = pl.get(i);
+            //System.out.println(arrayString(a) + "vs" + arrayString(c));
+            if (!won(a, c))
+                return false;
+        }
+        return true;
+    }
+    /* This was needed. Otherwise, it would be:
+       { 28 51 29 }vs{ 50 52 1 }
+       { 28 51 29 }vs{ 50 52 1 }
+       { 28 51 29 }vs{ 50 52 1 }
+       { 28 51 29 }vs{ 50 52 1 }
+       { 28 51 29 }vs{ 50 52 1 }
+       { 28 51 29 }vs{ 50 52 1 }
+     */
+    private static int[] copyArray(int[] a) {
+        int[] r = new int[a.length];
+        for (int i = 0; i < a.length; i++) {
+            r[i] = a[i];
+        }
+        return r;
+    }
+    private static void permute(int[] a, int n, ArrayList<int[]> pl) {
+        if (n == 1) {
+            //System.out.println(arrayString(a));
+            pl.add(copyArray(a));
+            return;
+        }
+        for (int i = 0; i < n; i++) {
+            swap(a, i, n - 1);
+            permute(a, n - 1, pl);
+            swap(a, i, n - 1);
+        }
+    }
+    private static int[] swap(int[] a, int b, int c) {
+        int t = a[b];
+        a[b] = a[c];
+        a[c] = t;
+        return a;
+    }
     private static int[] insertionSort(int[] a) {
         for (int i = 0; i < a.length; i++) {
             int t = a[i];
@@ -39,18 +90,11 @@ public class p12247 {
     private static boolean won(int[] a, int[] b) {
         int w = 0;
         for (int i = 0; i < 3; i++)
-            if (b[i] > a[i])
+            if (b[i] >= a[i])
                 w++;
         if (w >= 2)
             return true;
         return false;
-    }
-    private static int numWins(int[] a, int b) {
-        int n = 0;
-        for (int i = 0; i < 3; i++)
-            if (b > a[i])
-                n++;
-        return n;
     }
     public static void main(String[] args) throws Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -73,27 +117,28 @@ public class p12247 {
             if (numZeros == 5)
                 break;
 
-            int numWinsA = numWins(crds, crds[3]);
-            int numWinsB = numWins(crds, crds[4]);
+            int[] sister = new int[3];
+            int[] prince = new int[3];
 
-            if ((numWinsA < 2 || numWinsB < 2) && !(numWinsA == 3 || numWinsB == 3)) {
-                System.out.println("-1");
-                continue;
-            }
+            sister[0] = crds[0]; sister[1] = crds[1]; sister[2] = crds[2];
+            prince[0] = crds[3]; prince[1] = crds[4];
 
-            int minAmt = 2;
-            if ((numWinsA < 2 || numWinsB < 2) && (numWinsA == 3 || numWinsB == 3))
-                minAmt = 3;
-            if (numWinsA == 3 && numWinsB == 3)
-                minAmt = 0;
-
-            int r = -1;
-            for (int i = 0; i < 52; i++)
-                if (crdsTaken[i] != 1 && numWins(crds, i + 1) >= minAmt) {
-                    r = i + 1;
+            boolean foundSolution = false;
+            for (int i = 0; i < 4; i++) {
+                prince[2] = pickUnusedCard(crdsTaken, sister, i);
+                //System.out.println(prince[2]);
+                if (doCheck(sister, prince)) {
+                    foundSolution = true;
                     break;
                 }
-            System.out.println(r);
+            }
+
+            if (foundSolution == true) {
+                System.out.println(prince[2]);
+            } else {
+                System.out.println("-1");
+            }
+
         }
         in.close();
         out.close();
