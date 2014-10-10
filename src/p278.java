@@ -22,7 +22,7 @@ public class p278 {
             if (board[m][n] == 1)
                 return false;
 
-
+            return false;
         }
         void placePiece(char p, int m, int n) {
             if (p == 'r')
